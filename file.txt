@@ -1,0 +1,26 @@
+public class Card extends Deck{
+
+  private String suite;
+  private String card;
+  private int    value;
+  private int    id; 
+  
+  public Card(int seed){
+    super();
+    int n = seed % (BASE + SPECIALS.length);
+    int s = seed / (BASE + SUITES.length);
+    
+    String c = (n == 0)? SPECIALS[n] : "" + (n + 1);
+    if(n > BASE) c = SPECIALS[n-BASE];
+
+    this.id = seed;
+    this.value = n;
+    this.card  = c;
+    this.suite = SUITES[s];
+    
+  }
+
+  public String toString(){
+    return this.suite + this.card;
+  }
+}
